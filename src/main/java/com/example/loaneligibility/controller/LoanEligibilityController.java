@@ -13,29 +13,17 @@ import com.example.loaneligibility.service.LoanEligibilityService;
 
 @RestController
 public class LoanEligibilityController {
-	
-	
-	@Autowired 
+
+	@Autowired
 	LoanEligibilityService loanEligibilityService;
-	
-	
-	
-	
-	
+
 	@PostMapping("/CustomerEligibility")
-	public  ResponseEntity<CustomerLoanEligibilityResponse> checkEligibility(
+	public ResponseEntity<CustomerLoanEligibilityResponse> checkEligibility(
 			@RequestBody CustomerInfoReqDto customerInfo) {
-		CustomerLoanEligibilityResponse customerLoanEligibilityResponse	=new CustomerLoanEligibilityResponse();
-		customerLoanEligibilityResponse=loanEligibilityService.calculateEligibility();
+		CustomerLoanEligibilityResponse customerLoanEligibilityResponse = new CustomerLoanEligibilityResponse();
+		customerLoanEligibilityResponse = loanEligibilityService.calculateEligibility(customerInfo);
 		return ResponseEntity.status(HttpStatus.OK).body(customerLoanEligibilityResponse);
 
-	}
-	
-	private boolean Validate(CustomerInfoReqDto customerInfo) {
-		
-		
-		return false;
-		
 	}
 
 }
