@@ -5,19 +5,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 import com.example.loaneligibility.exception.ReadProperties;
 
 @Component
 public class ValidateEligibility {
-	
+
 	@Autowired
 	ReadProperties readProp;
-	
-	int ageConstraint=55;
-	
+
 	public int calculateAge(Date dob) {
 		DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
 		int d1 = Integer.parseInt(formatter.format(dob));
@@ -26,21 +23,24 @@ public class ValidateEligibility {
 		return age;
 
 	}
-	
-	public boolean ageEligibility(int age,int duration) {
-		int total=age+duration;
-		
-		if(total<readProp.getAgeConstraint()) {
+
+	public boolean ageEligibility(int age, int duration) {
+		int total = age + duration;
+
+		if (total < readProp.getAgeConstraint()) {
 			return false;
 		}
 		return true;
-		
+
 	}
-	
-	
-	public boolean monthlyContiEligibility() {
+
+	public boolean validateEMI(double monthlyExpense, double expectedAmount, double monthlyIncome, int duration) {
+		int totalMonths = duration * 12;
+		double emi = expectedAmount / totalMonths;
+		if (emi < monthlyIncome - monthlyExpense) {
+			return true;
+		}
 		return false;
-		
 	}
 
 }

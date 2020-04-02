@@ -16,6 +16,12 @@ public class ExceptionMessageProprties {
 
 	@Value("${com.project.exception.errorcode}")
 	private Integer errCode;
+	
+	@Value("${com.project.exception.messageeligible}")
+	private String eligible;
+
+	@Value("${com.project.exception.errorcodeeligible}")
+	private Integer eligibleErrCode;
 
 	public String getGenericErr() {
 		return genericErr;
@@ -31,6 +37,22 @@ public class ExceptionMessageProprties {
 
 	public void setErrCode(Integer errCode) {
 		this.errCode = errCode;
+	}
+
+	public String getEligible() {
+		return eligible;
+	}
+
+	public void setEligible(String eligible) {
+		this.eligible = eligible;
+	}
+
+	public Integer getEligibleErrCode() {
+		return eligibleErrCode;
+	}
+
+	public void setEligibleErrCode(Integer eligibleErrCode) {
+		this.eligibleErrCode = eligibleErrCode;
 	}
 
 	

@@ -24,9 +24,7 @@ public class NativeSqlRepo {
 
 
 	
-<<<<<<< Updated upstream
-	
-=======
+
 	public List<CityStatus> getCityStaus(int pincode) {
 
 		Query query = entityManager.createNativeQuery("select  * from City_Status where pin_code='" 
@@ -41,6 +39,5 @@ public class NativeSqlRepo {
 		return    query.getResultList();
 	}
 	  
->>>>>>> Stashed changes
 	 
 }

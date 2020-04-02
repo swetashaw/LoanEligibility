@@ -17,6 +17,7 @@ public class LoanEligibilityService {
 	@Autowired
 	ValidateEligibility validateEligiblity;	
 	
+	
 	@Autowired
 	ExceptionMessageProprties exceptionMsgProp;
 
@@ -30,11 +31,16 @@ public class LoanEligibilityService {
 		int pincode = customerInfo.getPinCode();
 		int age=validateEligiblity.calculateAge(Dob);
 		
-		if(validateEligiblity.ageEligibility(age,duration)) {
+		if(validateEligiblity.ageEligibility(age,duration) && validateEligiblity.validateEMI( monthlyExpense, expectedAmount, monthlyIncome,duration) ) {
 			response.setMessage(exceptionMsgProp.getGenericErr());
 			response.setStatusCode(exceptionMsgProp.getErrCode());
-			return response;
 		}
+		else
+		{
+			response.setMessage(exceptionMsgProp.getEligible());
+			response.setStatusCode(exceptionMsgProp.getErrCode());	
+		}
+		
 		
 		return response;
 	}
