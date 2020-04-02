@@ -16,22 +16,7 @@ public class NativeSqlRepo {
     EntityManager entityManager;
 
 
-	/*
-	 * public List<Stock> getStocksByStockName(StringBuffer whereQuery) {
-	 * 
-	 * Query query = entityManager.createNativeQuery("Select * from stock where " +
-	 * whereQuery, Stock.class);
-	 * 
-	 * return query.getResultList(); }
-	 * 
-	 * 
-	 * public List<UserStocks> getUserStocksByStockId(StringBuffer whereQuery) {
-	 * Query query =
-	 * entityManager.createNativeQuery("Select * from user_stocks where " +
-	 * whereQuery, UserStocks.class);
-	 * 
-	 * return query.getResultList();
-	 * 
-	 * }
-	 */
+	
+	
+	 
 }
