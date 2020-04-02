@@ -26,8 +26,11 @@ public class Status implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int status_id;
 	
-	@Column(name="staus")
-	private String staus;
+	@Column(name="status")
+	private String status;
+	
+	@Column (name="percentage")
+	private double percentage;
 
 	public int getStatus_id() {
 		return status_id;
@@ -37,12 +40,20 @@ public class Status implements Serializable{
 		this.status_id = status_id;
 	}
 
-	public String getStaus() {
-		return staus;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setStaus(String staus) {
-		this.staus = staus;
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public double getPercentage() {
+		return percentage;
+	}
+
+	public void setPercentage(double percentage) {
+		this.percentage = percentage;
 	}
 
 	
